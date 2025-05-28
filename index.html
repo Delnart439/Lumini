@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centre Lumini - Centre Médical et Paramédical</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+
+    
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-title">
+            <a href="index.html" style="color: inherit; text-decoration: none; font-weight: 400;">
+                BIENVENUE AU CENTRE LUMINI
+            </a>
+
+            
+        </div>
+
+        <!-- Hamburger button -->
+        <button class="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav id="main-nav">
+
+            <ul>
+                <li>
+                    <a href="index.html">Accueil</a>
+                </li>
+
+                <li class="dropdown">
+                    <a href="disciplines.html" style="display: flex; align-items: center; gap: 6px;">
+                        Disciplines
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down" style="display: block; margin: 0;">
+                          <path d="m6 9 6 6 6-6"/>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="dietetique.html">Diététique</a></li>
+                        <li><a href="kinesitherapie.html">Kinésithérapie</a></li>
+                        <li><a href="logopedie.html">Logopédie</a></li>
+                        <li><a href="neuropsychologie.html">Neuropsychologie</a></li>
+                        <li><a href="orthopedagogie.html">Orthopédagogie</a></li>
+                        <li><a href="osteopathie.html">Ostéopathie</a></li>
+                        <li><a href="psychologie.html">Psychologie</a></li>
+                        <li><a href="psychiatrie.html">Psychiatrie & Neurologie</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="therapeutes.html" style="display: flex; align-items: center; gap: 6px;">
+                        Thérapeutes
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down" style="display: block; margin: 0;">
+                          <path d="m6 9 6 6 6-6"/>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="dieteticiens.html">Diététiciens</a></li>
+                        <li><a href="kinesitherapeutes.html">Kinésithérapeutes</a></li>
+                        <li><a href="logopedes.html">Logopèdes</a></li>
+                        <li><a href="neuropsychologues.html">Neuropsychologues</a></li>
+                        <li><a href="orthopedagogues.html">Orthopédagogues</a></li>
+                        <li><a href="osteopathes.html">Ostéopathes</a></li>
+                        <li><a href="psychologues.html">Psychologues</a></li>
+                        <li><a href="psychiatres.html">Psychiatres & Neurologues</a></li>
+                    </ul>
+        </li>
+         <li class="actualites-mobile"><a href="actualites.html">Actualités</a></li>
+        <li class="contact-mobile"><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+    </header>
+    <!-- Header end -->
+
+    
+<div style="max-width: 1100px; margin: 3px auto 0 auto; text-align: center; padding: 0 24px;">
+
+    <div style="height: 40px;"></div>
+
+    <img src="Images/Logo.png" alt="Centre Lumini" style="width:70%;max-width:1200px;display:block;margin:32px auto 0 auto;">
+
+    <h1 style="margin-top: 16px; font-weight: 200;" class="accueil-intro">
+        Le centre Lumini est un centre pluridisciplinaire qui regroupe des thérapeutes spécialisés dans la santé mentale et physique.
+    </h1>
+    <h3 style="margin-top: 16px; font-weight: 400;" class="accueil-intro2">
+        Votre bien-être est notre priorité, nous sommes là pour vous accompagner dans votre parcours de santé.
+    </h3>
+    <div class="contact-btn-wrapper">
+        <span class="arrow arrow-left">
+            <!-- Left arrow SVG (points right) -->
+           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevrons-right-icon lucide-chevrons-right"><path d="m6 17 5-5-5-5"/><path d="m13 17 5-5-5-5"/></svg>
+        </span>
+        <a href="#contact" class="contact-btn">
+            Contactez-nous
+        </a>
+        <span class="arrow arrow-right">
+            <!-- Right arrow SVG (points left) -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevrons-left-icon lucide-chevrons-left"><path d="m11 17-5-5 5-5"/><path d="m18 17-5-5 5-5"/></svg>
+        </span>
+    </div>
+    <div style="height: 40px;"></div>
+</div>
+
+<div class="pluri-flex img"; style="background: #fae3b7; border-radius: 0; width: 100%; max-width: none; margin: 48px 0 0 0; padding: 100px 0 100px 0; display: flex; flex-direction: column; gap: 0; box-shadow: 0 4px 24px #0001; position: relative; left: 50%; right: 50%; transform: translateX(-50%);">
+    <!-- Bloc 1 : image gauche, texte droite -->
+    <div style="max-width: 1000px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 32px; align-items: center;" class="scroll-animate">
+        <img src="Images/accompagnementperso.png" alt="Accompagnement personnalisé" style="width: 100%; max-width: 320px; border-radius: 12px; box-shadow: 0 2px 12px #0002; flex: 1 1 240px;">
+        <div style="flex: 2 1 340px; text-align: left;">
+            <h3 style="margin-top: 0; color: black; font-weight: 600;">Accompagnement personnalisé</h3>
+            <p style="font-size: 1.2em; color: #222; margin-bottom: 0;">
+                Nos thérapeutes s’engagent à offrir un suivi adapté à chaque patient en tenant compte de leurs besoins spécifiques.
+            </p>
+        </div>
+    </div>
+    <!-- Bloc 2 : texte gauche, image droite -->
+    <div style="max-width: 1000px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 32px; align-items: center; flex-direction: row-reverse; margin-top: -24px;" class="scroll-animate">
+        <img src="Images/Pluridisciplinarité.png" alt="Pluridisciplinarité" style="width: 100%; max-width: 320px; border-radius: 12px; box-shadow: 0 2px 12px #0002; flex: 1 1 240px;">
+        <div style="flex: 2 1 340px; text-align: left;">
+            <h3 style="margin-top: 0; color: black; font-weight: 600;">Pluridisciplinarité</h3>
+            <p style="font-size: 1.2em; color: #222; margin-bottom: 0;">
+                Nous travaillons en équipe de manière collaborative pour garantir une prise en charge cohérente et complémentaire, favorisant ainsi le bien-être global de nos patients.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div style="width: 100vw; max-width: none; margin: 0; padding: 64px 0 0 0; display: flex; flex-direction: column; align-items: center; position: relative; left: 50%; right: 50%; transform: translateX(-50%); box-shadow: none;">
+    <div style="flex: 2 1 150px; text-align: center;">
+        <h1 style="margin-top: 70px; color: black; font-weight: 550; font-size: 2.4em;">
+            Nos différents services
+        </h1>
+        <p style="font-size: 1.2em; color: #222; margin-bottom: 100px;">
+            Accompagnements individuels ou en groupe, en fonction des besoins spécifiques.
+        </p>
+    </div>
+    <div style="max-width: 1500px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px 100px; justify-content: center;">
+        <!-- Image 1 + text -->
+        <div class="service-animate" style="flex: 1 1 320px; display: flex; flex-direction: column; align-items: center; max-width: 320px;">
+            <h3 style="margin-top: 0; color: black; font-weight: 600;">Consultations pour enfants</h3>
+            <div style="width:260px; height:260px; overflow:hidden; border-radius:12px; box-shadow:0 2px 12px #0002; display:flex; align-items:center; justify-content:center;">
+                <img src="Images/enfants.png" alt="Service 1" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <p style="margin: 18px 0 0 0; font-size: 1.1em; color: #222; text-align: justify;">
+                Nous proposons des suivis pour les nourrissons et les enfants en passant par tous les aspects de leur fonctionnement (moteur, affectif, social, cognitif et langagier).
+            </p>
+        </div>
+        <!-- Image 2 + text -->
+        <div class="service-animate" style="flex: 1 1 320px; display: flex; flex-direction: column; align-items: center; max-width: 320px;">
+            <h3 style="margin-top: 0; color: black; font-weight: 600;">Consultations pour adolescents</h3>
+            <div style="width:260px; height:260px; overflow:hidden; border-radius:12px; box-shadow:0 2px 12px #0002; display:flex; align-items:center; justify-content:center;">
+                <img src="Images/ados.png" alt="Service 2" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <p style="margin: 18px 0 0 0; font-size: 1.1em; color: #222; text-align: justify;">
+                Nos thérapeutes accompagnent les pré-adolescents et les adolescents à surmonter les changements qu’ils rencontrent dans leur quotidien.
+            </p>
+        </div>
+        <!-- Image 3 + text -->
+        <div class="service-animate" style="flex: 1 1 320px; display: flex; flex-direction: column; align-items: center; max-width: 320px;">
+            <h3 style="margin-top: 0; color: black; font-weight: 600;">Consultations pour adultes</h3>
+            <div style="width:260px; height:260px; overflow:hidden; border-radius:12px; box-shadow:0 2px 12px #0002; display:flex; align-items:center; justify-content:center;">
+                <img src="Images/adultes.png" alt="Service 3" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <p style="margin: 18px 0 0 0; font-size: 1.1em; color: #222; text-align: justify;">
+                Nous proposons également des consultations pour les femmes enceintes, les couples, les parents mais aussi des suivis individuels afin de prendre soin de votre bien-être.
+            </p>
+            <div style="height: 60px;"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer style="background: black; padding: 90px 0 24px 0; text-align: center; color: white; font-family: inherit; margin-top: 48px;">
+    <div style="font-size: 1.15em; font-weight: 500;">
+        Rue Edith Cavell 66, 1180 Uccle
+    </div>
+    <div style="margin: 18px 0 0 0; font-size: 1.1em;">
+        <a href="mailto:info@centrelumini.be" style="color: white;">info@centrelumini.be</a>
+    </div>
+    <div style="margin: 22px 0 0 0;">
+        <a href="https://www.instagram.com/centre_lumini/" target="_blank" rel="noopener" style="display: inline-block;" class="insta-link">
+            <!-- Lucide Instagram SVG icon with yellow color -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fae3b7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram-icon lucide-instagram insta-icon">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+            </svg>
+        </a>
+    </div>
+    <div style="margin-top: 22px;margin-bottom: 80px; font-size: 0.8em; color: white;">
+        Centre LUMINI ©2025 – Tous droits réservés. <a href="Mentions légales.html" style="color: white;">Mentions Légales</a>
+    </div>
+</footer>
+
+
+</body>
+</html>
+
+
