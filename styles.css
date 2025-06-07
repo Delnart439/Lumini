@@ -1,0 +1,1431 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+header {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    background: black;
+    color: #fae3b7;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    box-shadow: none;
+    z-index: 20;
+    backdrop-filter: blur(4px);
+    border-bottom: none;
+    
+}
+
+.header-title {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+}
+
+nav {
+    background: none;
+    padding: 5px;
+    border-radius: 10px;
+    margin-left: 0; /* Change from 24px to 0 to bring nav closer to title */
+    margin-right: 50px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+
+nav ul li {
+    position: relative;
+    padding: 10px;
+    
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    transition: color 0.3s;
+}
+
+nav ul li a::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 6px;
+    width: 0;
+    height: 4px;
+    background: #fae3b7;
+    border-radius: 2px;
+    transition: width 0.35s cubic-bezier(.4,0,.2,1), background 0.2s, height 0.2s;
+    opacity: 0.8;
+}
+
+nav > ul > li > a:hover,
+nav > ul > li > a:focus {
+    background-color: transparent;
+    color: #fae3b7;
+}
+
+nav > ul > li > a:hover::after,
+nav > ul > li > a:focus::after {
+    width: 100%;
+}
+
+/* Center dropdown menu under its parent li */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fae3b7;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    min-width: 140px; 
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 16px #0002;
+    z-index: 9999;
+}
+
+.dropdown-menu li {
+    padding: 0;
+}
+
+.dropdown-menu li a {
+    color: #222; /* Make dropdown text black */
+    padding: 12px 24px;
+    display: block;
+    background: none;
+    border-radius: 0;
+    transition: background 0.2s, color 0.2s;
+    position: relative;
+}
+
+/* Dropdown hover: background highlight, no underline */
+.dropdown-menu li a:hover,
+.dropdown-menu li a:focus {
+    background: #f5d9c0;
+    color: white; 
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
+    display: block;
+}
+
+.contact-btn-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 40px; /* spacing from above */
+    margin-bottom: 0;
+    position: relative;
+}
+
+.contact-btn {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    /* Remove margin-top here */
+    padding: 14px 36px;
+    background: #fae3b7;
+    color: black;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 24px;
+    text-decoration: none;
+    box-shadow: 0 2px 12px #0002;
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+    font-weight: 600;
+}
+
+.contact-btn:hover,
+.contact-btn:focus {
+    background: black;
+    color: #fff;
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 4px 24px black;
+    z-index: 0;
+}
+
+.arrow {
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.8s cubic-bezier(.4,0,.2,1);
+    display: flex;
+    align-items: center;
+}
+
+.arrow-left {
+    transform: translateX(-60px);
+}
+
+.arrow-right {
+    transform: translateX(60px);
+}
+
+.contact-btn-wrapper.arrows-in .arrow-left {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.2s;
+}
+.contact-btn-wrapper.arrows-in .arrow-right {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.4s;
+}
+
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+    will-change: opacity, transform;
+}
+
+.scroll-animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.service-animate {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+    transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
+    will-change: opacity, transform;
+}
+.service-animate.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.insta-link .insta-icon {
+    transition: transform 0.2s cubic-bezier(.4,0,.2,1), stroke 0.2s;
+}
+.insta-link:hover .insta-icon {
+    transform: scale(1.18) rotate(-8deg);
+    stroke: #FFD600; /* Instagram yellow on hover */
+}
+
+footer a[href^="mailto:"]:hover,
+footer a[href^="mailto:"]:focus,
+footer a[href*="Mentions"]:hover,
+footer a[href*="Mentions"]:focus {
+    color: #fae3b7;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+footer a[href^="mailto:"],
+footer a[href*="Mentions"] {
+    text-decoration: underline;
+}
+
+
+/* contact page */
+.mail-link:hover,
+.mail-link:focus {
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.contact-form button[type="submit"] {
+    background: #fae3b7;
+    color: #222;
+    padding: 12px 32px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: none;
+    transition: background 0.22s, color 0.22s, transform 0.18s;
+}
+
+.contact-form button[type="submit"]:hover,
+.contact-form button[type="submit"]:focus {
+    background: #000;
+    color: #fff;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: none;
+}
+
+form.contact-form button[type="submit"]:hover,
+form.contact-form button[type="submit"]:focus {
+    background: #000 !important;
+    color: #fff !important;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: none !important;
+}
+
+
+/* disciplines */
+.disciplines-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 36px 32px;
+    max-width: 900px;
+    margin: 48px auto 0 auto;
+    padding: 0 24px;
+}
+.discipline-item {
+    background: #fae3b7;
+    border-radius: 26px;
+    box-shadow: 0 2px 12px #0001;
+    padding: 24px 12px 18px 12px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none; 
+    color: inherit;
+    transition: transform 0.22s cubic-bezier(.4,0,.2,1), box-shadow 0.22s, background 0.22s;
+    cursor: pointer;
+}
+.discipline-item img {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    margin-bottom: 16px;
+}
+.discipline-item h4 {
+    margin: 0;
+    font-size: 1em;
+    color: #222;
+    font-weight: 300;
+    text-decoration: none; /* Ensure no underline on title */
+}
+.discipline-item:hover,
+.discipline-item:focus {
+    background: #fff;
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 8px 32px #0002;
+}
+
+.therapeutes-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 36px 32px;
+    max-width: 1400px;
+    margin: 0 auto 0 auto;
+    padding: 0 24px;
+}
+.therapeute-item {
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 2px 12px #0001;
+    padding: 0 0 18px 0; /* Remove top/bottom padding, keep only bottom */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 340px;
+    overflow: hidden;
+}
+.therapeute-item img {
+    width: 100%;
+    aspect-ratio: 1 / 1;      /* Force a square ratio */
+    height: auto;             /* Let aspect-ratio control height */
+    object-fit: cover;
+    border-radius: 24px 24px 0 0;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 8px #0001;
+    background: #eee;
+    display: block;
+    min-height: 170px;        /* Optional: minimum height for small boxes */
+    max-height: 260px;        /* Optional: limit max height if needed */
+}
+.therapeute-info h4 {
+    margin: 0 0 6px 0;
+    font-size: 1.08em;
+    color: #222;
+    font-weight: 700;
+}
+.therapeute-info .fonction {
+    font-size: 0.98em;
+    color: #3c3c3c;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+.en-savoir-plus {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 0.97em;
+    color: #3c3c3c;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: color 0.18s;
+}
+.en-savoir-plus:hover,
+.en-savoir-plus:focus {
+    color: #222;
+    text-decoration: none;
+}
+
+.therapeute-item a img {
+    transition: transform 0.22s cubic-bezier(.4,0,.2,1), box-shadow 0.22s;
+}
+
+/*
+.therapeute-item a:hover img,
+.therapeute-item a:focus img {
+    transform: scale(1.07) rotate(-2deg);
+    box-shadow: 0 8px 32px #0003;
+}
+*/
+
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-form label,
+.contact-form input,
+.contact-form textarea,
+.contact-form button {
+    width: 100%;
+    max-width: 1000px;
+    box-sizing: border-box;
+}
+
+
+.therapeutes-btn {
+    text-align: center;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none; 
+    color: inherit;
+    transition: transform 0.22s cubic-bezier(.4,0,.2,1), box-shadow 0.22s, background 0.22s;
+    cursor: pointer;
+}
+
+.therapeutes-btn:hover,
+.discipline-item:focus {
+    transform: translateY(-8px) scale(1.04);
+}
+
+
+@media (max-width: 900px) {
+  .hamburger {
+    display: none !important;
+  }
+  nav {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    background: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  nav ul {
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0 !important;
+    width: 100% !important;
+    font-size: 0.95em !important;
+  }
+  nav ul li {
+    width: auto !important;
+    text-align: center !important;
+    border-bottom: none !important;
+    padding: 0 4px !important;
+  }
+  nav ul li a {
+    padding: 8px 8px !important;
+    font-size: 0.98em !important;
+  }
+  .dropdown-menu {
+    position: absolute !important;
+    background: #fae3b7 !important;
+    color: #222 !important;
+    border-radius: 0 0 10px 10px !important;
+    min-width: 120px !important;
+    width: max-content !important;
+    text-align: center !important;
+    box-shadow: 0 4px 16px #0002 !important;
+    display: none !important;
+  }
+  .dropdown:hover .dropdown-menu,
+  .dropdown:focus-within .dropdown-menu {
+    display: block !important;
+  }
+}
+
+/* Responsive layout for portrait + text */
+@media (max-width: 800px) {
+  .therapeutes-grid,
+  .therapeute-item,
+  .therapeute-info,
+  .therapeutes-grid[style*="display: flex"] {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 24px !important;
+  }
+  .therapeutes-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .therapeute-item {
+    width: 100% !important;
+    max-width: 340px !important;
+  }
+  .therapeute-info {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+  /* Portrait + texte bloc (ex: page personne) */
+  .portrait-text-flex {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 24px !important;
+    max-width: 100% !important;
+  }
+  .portrait-text-flex > div {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+}
+
+/* Responsive padding and font for main blocks */
+@media (max-width: 600px) {
+  html, body {
+    font-size: 0.90em !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+  }
+  .header-title {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+    margin-top: 18px !important;
+    padding-top: 12px !important;
+  }
+  nav ul {
+    font-size: 0.72em !important;
+    gap: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+  }
+  nav ul li {
+    padding: 0 1px !important;
+  }
+  nav ul li a {
+    padding: 5px 2px !important;
+    font-size: 0.8em !important;
+  }
+  .bloc-detail,
+  .therapeute-info,
+  .portrait-text-flex > div,
+  .service-animate > div {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+    font-size: 0.98em !important;
+  }
+  main, .home-section, .scroll-animate {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+  }
+  .therapeute-item {
+    min-height: 220px !important;
+    padding: 0 0 8px 0 !important;
+    max-width: 98vw !important;
+  }
+  @media (max-width: 600px) {
+  .therapeute-item img {
+    width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    height: auto !important;
+    max-height: none !important;
+    min-height: 0 !important;
+    object-fit: cover !important;
+    display: block;
+    border-radius: 24px 24px 0 0;
+    margin: 0;
+    background: #eee;
+  }
+  .service-animate img,
+  .scroll-animate img,
+  .portrait-text-flex img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 12px !important;
+  }
+}
+  .portrait-text-flex {
+    gap: 12px !important;
+    max-width: 100vw !important;
+  }
+  .portrait-text-flex > div {
+    max-width: 100vw !important;
+    width: 100vw !important;
+  }
+  .bloc-detail {
+    padding: 10px 4px !important;
+    font-size: 0.97em !important;
+    max-width: 100vw !important;
+  }
+  .contact-btn,
+  .therapeutes-btn {
+    font-size: 0.98em !important;
+    padding: 10px 18px !important;
+  }
+  .discipline-item img {
+    width: 60px !important;
+    height: 60px !important;
+  }
+  .discipline-item {
+    padding: 12px 4px 10px 4px !important;
+    font-size: 0.98em !important;
+  }
+  .header-bar {
+    min-height: 44px !important;
+    padding: 0 4px !important;
+  }
+  footer {
+    padding: 32px 0 12px 0 !important;
+    font-size: 0.95em !important;
+  }
+  img[alt="Centre Lumini"] {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 12px !important;
+    margin-bottom: 0 !important;
+    width: 90vw !important;
+    max-width: 180px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .service-animate {
+    max-width: 98vw !important;
+    min-width: 0 !important;
+    padding-left: 2vw !important;
+    padding-right: 2vw !important;
+    box-sizing: border-box !important;
+  }
+  .service-animate > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: 0.97em !important;
+    word-break: break-word !important;
+    box-sizing: border-box !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .service-animate img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 160px !important;
+    object-fit: cover !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 12px !important;
+  }
+}
+
+/* Harmonise les images des services avec celles du haut (ex: .therapeute-item img) */
+.service-animate img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    object-fit: cover;
+    border-radius: 24px 24px 0 0;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 8px #0001;
+    background: #eee;
+    display: block;
+    min-height: 170px;
+    max-height: 260px;
+}
+
+/* Responsive pour mobile */
+@media (max-width: 600px) {
+  .service-animate img {
+    width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    height: auto !important;
+    max-height: none !important;
+    min-height: 0 !important;
+    object-fit: cover !important;
+    display: block;
+    border-radius: 24px 24px 0 0 !important;
+    margin-bottom: 12px !important;
+    background: #eee !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .accueil-intro,
+  .accueil-intro * {
+    font-size: 1.2em !important;
+    line-height: 1.3 !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .accueil-intro2,
+  .accueil-intro2  * {
+    font-size: 0.8em !important;
+    line-height: 1.3 !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .accompagnement-flex,
+  .pluri-flex {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 18px !important;
+  }
+  .accompagnement-flex > div,
+  .pluri-flex > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 6vw !important;
+    padding-right: 6vw !important;
+    box-sizing: border-box !important;
+  }
+  .accompagnement-flex img,
+  .pluri-flex img {
+    width: 100% !important;
+    max-width: 220px !important;
+    height: auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block !important;
+    margin-bottom: 6px !important; /* Réduit l’espace entre l’image et le texte */
+  }
+  /* Pour éviter le chevauchement du texte sur l'image suivante */
+  .accompagnement-flex > div:first-child,
+  .pluri-flex > div:first-child {
+    margin-bottom: 0 !important;
+  }
+  .accompagnement-flex > div:last-child,
+  .pluri-flex > div:last-child {
+    margin-top: 0 !important;
+  }
+  /* Centrer le texte à l'intérieur */
+  .accompagnement-flex p,
+  .pluri-flex p,
+  .accompagnement-flex ul,
+  .pluri-flex ul {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .accompagnement-flex h2,
+  .accompagnement-flex h3,
+  .pluri-flex h2,
+  .pluri-flex h3 {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 600px) {
+  nav ul li a svg {
+    display: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Désactive le hover uniquement sur le menu principal, PAS sur le dropdown */
+  nav > ul > li > a:hover,
+  nav > ul > li > a:focus {
+    background-color: transparent !important;
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+  nav > ul > li > a:hover::after,
+  nav > ul > li > a:focus::after {
+    width: 0 !important;
+    background: none !important;
+  }
+  /* Garde le hover sur .dropdown-menu li a */
+  .dropdown-menu li a:hover,
+  .dropdown-menu li a:focus {
+    background: #f5d9c0 !important;
+    color: white !important;
+    text-decoration: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  nav ul {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0 !important;
+    width: 100% !important;
+    background: #000 !important;
+    border-radius: 0 0 12px 12px !important;
+    box-shadow: 0 2px 12px #0001 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    justify-items: stretch !important;
+    align-items: stretch !important;
+  }
+  nav ul li {
+    border-bottom: none !important;
+    border-right: none!important;
+    width: 100% !important;
+    text-align: center !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 0 !important;
+  }
+  nav ul li:nth-child(3n) {
+    border-right: none !important;
+  }
+  nav ul li a {
+    display: block !important;
+    width: 100% !important;
+    padding: 14px 0 !important;
+    font-size: 0.95em !important;
+    color: #fafafa !important;
+    background: none !important;
+    text-align: center !important;
+    font-weight: 500 !important;
+    border-radius: 0 !important;
+    box-sizing: border-box !important;
+    transition: background 0.2s;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  nav ul li:last-child {
+    border-right: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 0 !important;
+  }
+  .header-title {
+    order: 1;
+    width: 50% !important;
+    text-align: center !important;
+    padding: 18px 0 8px 0 !important;
+    margin: 0 !important;
+  }
+ 
+  nav {
+    order: 3;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Menu principal : fond noir, texte blanc */
+  nav ul {
+    background: #000 !important;
+  }
+  nav ul li a {
+    color: #fafafa !important;
+    background: none !important;
+  }
+
+  /* Dropdown menu : fond jaune, texte noir */
+  .dropdown-menu {
+    background: #fae3b7 !important;
+    box-shadow: 0 4px 16px #0002 !important;
+    border-radius: 0 0 10px 10px !important;
+  }
+  .dropdown-menu li a {
+    color: #222 !important;
+    background: none !important;
+  }
+  .dropdown-menu li a:hover,
+  .dropdown-menu li a:focus {
+    background: #f5d9c0 !important;
+    color: #222 !important;
+  }
+}
+
+/* Hamburger button styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10001;
+  margin-left: 12px;
+}
+.hamburger span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  margin: 5px 0;
+  background: #fae3b7;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Hamburger visible and menu hidden on mobile */
+@media (max-width: 600px) {
+  .hamburger {
+    display: flex !important;
+    position: fixed !important;
+    top: 18px;
+    right: 16px;
+    left: auto;
+    width: 36px;
+    height: 36px;
+    z-index: 10002;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #1f1f1f;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px #0002;
+    transition: width 0.2s, height 0.2s, right 0.2s, top 0.2s;
+  }
+  .hamburger span {
+    width: 20px;
+    height: 2.5px;
+    margin: 3px 0;
+    background: #fae3b7;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+  nav {
+    display: none !important;
+    position: fixed !important;
+    top: 0;
+    right: 0;
+    left: auto;
+    width: 70vw;
+    max-width: 320px;
+    height: 100vh;
+    background: #000;
+    z-index: 10000;
+    padding: 0;
+    box-shadow: -4px 0 32px #0003;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(.4,0,.2,1);
+    overflow-y: auto;
+  }
+  nav.open {
+    display: block !important;
+    transform: translateX(0);
+  }
+  body.menu-open {
+    overflow: hidden !important;
+  }
+  nav ul {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+    width: 100% !important;
+    background: #000 !important;
+    border-radius: 0 0 12px 12px !important;
+    box-shadow: 0 2px 12px #0001 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    justify-items: stretch !important;
+    align-items: stretch !important;
+  }
+  nav ul li {
+    border-bottom: 1px solid #222 !important;
+    border-right: none !important;
+    width: 100% !important;
+    text-align: center !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 0 !important;
+  }
+  nav ul li:last-child {
+    border-bottom: none !important;
+  }
+  nav ul li a {
+    display: block !important;
+    width: 100% !important;
+    padding: 16px 0 !important;
+    font-size: 1em !important;
+    color: #fafafa !important;
+    background: none !important;
+    text-align: center !important;
+    font-weight: 500 !important;
+    border-radius: 0 !important;
+    box-sizing: border-box !important;
+    transition: background 0.2s;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  /* Dropdown menu : fond jaune, texte noir */
+  .dropdown-menu {
+    background: #fae3b7 !important;
+    box-shadow: 0 4px 16px #0002 !important;
+    border-radius: 0 0 10px 10px !important;
+  }
+  .dropdown-menu li a {
+    color: #222 !important;
+    background: none !important;
+  }
+  .dropdown-menu li a:hover,
+  .dropdown-menu li a:focus {
+    background: #f5d9c0 !important;
+    color: #222 !important;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Cache le dropdown menu sur mobile */
+  .dropdown-menu {
+    display: none !important;
+  }
+  /* Cache la flèche du menu si présente */
+  .dropdown > a svg {
+    display: none !important;
+  }
+  /* Désactive tout JS ou CSS qui empêcherait le clic sur le lien parent */
+  .dropdown > a {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+  }
+  /* Désactive tout :hover qui pourrait empêcher le clic */
+  .dropdown:hover .dropdown-menu,
+  .dropdown:focus-within .dropdown-menu {
+    display: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .disciplines-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 18px 8px !important;
+    max-width: 98vw !important;
+    margin: 24px auto 0 auto !important;
+    padding: 0 2vw !important;
+  }
+ /* Rends les titres des 8 disciplines plus fins et plus clairs */
+.discipline-item h4 {
+  font-weight: 00 !important;
+  color: #444 !important;
+  letter-spacing: 0.01em !important;
+  font-size: 1em !important;
+  opacity: 0.85 !important;
+}
+
+/* Boîtes carrées pour mieux centrer l'image */
+.discipline-item {
+  aspect-ratio: 1 / 1 !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  width: 100% !important;
+  max-width: 180px !important;
+  max-height: 180px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 16px 8px 8px 8px !important;
+  box-sizing: border-box !important;
+}
+
+/* Image centrée et adaptée à la boîte carrée */
+.discipline-item img {
+  width: 70% !important;
+  height: 70% !important;
+  object-fit: contain !important;
+  margin-bottom: 10px !important;
+  display: block !important;
+}
+}
+
+@media (max-width: 600px) {
+  .discipline-title,
+  .discipline-title * {
+    font-size: 1.1em !important;
+    line-height: 1.2 !important;
+    padding: 18px 0 8px 0 !important;
+  }
+  /* Si le bloc n'a pas de classe, cibler le style inline */
+  div[style*="font-size: 2.5em"] {
+    font-size: 1.1em !important;
+    padding: 24px 0 10px 0 !important;
+  }
+  div[style*="font-size: 2.5em"] p {
+    font-size: 0.7em !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .therapeutes-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 14px 6px !important;
+    max-width: 98vw !important;
+    margin: 15px auto 0 auto !important;
+    padding: 0 2vw !important;
+  }
+  .therapeute-item {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    width: 95% !important;
+    margin: 0 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 8px #0001 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+  }
+  .therapeute-item img {
+    height: 90px !important;
+    min-height: 70px !important;
+    max-height: 110px !important;
+    border-radius: 12px 12px 0 0 !important;
+  }
+  .therapeute-info {
+    padding: 8px 4px 8px 4px !important;
+    font-size: 0.8em !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .therapeute-item {
+    min-height: 210px !important;
+    height: 210px !important;
+    max-height: 210px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+    background: #fff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 8px #0001 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+  .therapeute-item img {
+    width: 100% !important;
+    height: 90px !important;
+    min-height: 90px !important;
+    max-height: 90px !important;
+    object-fit: cover !important;
+    border-radius: 12px 12px 0 0 !important;
+    margin: 0 !important;
+    background: #eee !important;
+    display: block !important;
+  }
+  .therapeute-info {
+    flex: 1 1 auto !important;
+    padding: 1px 1px 1px 1px !important;
+    font-size: 0.7em !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    height: 100% !important;
+  }
+  .en-savoir-plus {
+    display: inline-block !important;
+    margin-top: 6px !important;
+    font-size: 0.8em !important;
+    color: #3c3c3c !important;
+    text-decoration: underline !important;
+    font-weight: 500 !important;
+    transition: color 0.18s;
+    align-self: center !important;
+    /* S'assure que le lien reste visible même si le texte est court */
+  }
+}
+
+@media (max-width: 600px) {
+  .therapeutes-title,
+  .therapeutes-title * {
+    margin-bottom: 1px !important;
+    display: block !important;
+
+}
+}
+
+
+/*actualité*/
+
+@media (max-width: 600px) {
+  /* Cible les titres et textes spécifiques de la page actualités */
+  .actualites-box {
+    font-size: 1.5em !important;
+    line-height: 1.4 !important;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Cible les titres et textes spécifiques de la page actualités */
+  .actualites-box2 {
+    font-size: 1.3em !important;
+    line-height: 1.4 !important;
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Cible les titres et textes spécifiques de la page actualités */
+  .actualites-box3 {
+    font-size: 0.8em !important;
+    line-height: 1.4 !important;
+  }
+}
+/*actualité end*/
+
+
+/*Contact page*/
+
+@media (min-width: 900px) {
+  .contact-form {
+    max-width: 600px !important;
+    width: 100% !important;
+    padding: 48px 40px !important;
+    margin: 0 auto 48px auto !important;
+    font-size: 1.18em !important;
+    box-sizing: border-box !important;
+  }
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea,
+  .contact-form button {
+    font-size: 1.12em !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .contact-form textarea {
+    min-height: 90px !important;
+    font-size: 1em !important;
+  }
+  .contact-form button[type="submit"] {
+    font-size: 1em !important;
+    padding: 12px 0 !important;
+    border-radius: 8px !important;
+    margin-top: 8px !important;
+  }
+  .contact-info,
+  .contact-details {
+    width: 100% !important;
+    font-size: 0.8em !important;
+    margin-bottom: 18px !important;
+    text-align: center !important;
+    padding: 0 2vw !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-title,
+  .contact-title * {
+    font-size: 1.5em !important;
+    line-height: 0.5 !important;
+    margin-bottom: 1px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-location,
+  .contact-location * {
+    font-size: 0.5em !important;
+    line-height: 0.5 !important;
+    margin-bottom: 2px !important;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .contact-map,
+  iframe[src*="google.com/maps"] {
+    width: 94vw !important;
+    max-width: 98vw !important;
+    height: 180px !important;
+    min-height: 120px !important;
+    border-radius: 12px !important;
+    display: block !important;
+    margin: 16px auto 18px auto !important;
+    box-shadow: 0 2px 8px #0001 !important;
+  }
+}
+
+/*Contact page end*/
+
+@media (max-width: 700px) {
+  /* Section titre jaune */
+  .psychiatrie-title,
+  div[style*="Psychiatrie & Neurologie"] {
+    font-size: 1.3em !important;
+    padding: 24px 2vw !important;
+    line-height: 1.2 !important;
+    word-break: break-word !important;
+  }
+
+  /* Bouton "Voir nos thérapeutes" */
+  .therapeutes-btn,
+  a[style*="Voir nos thérapeutes"] {
+    font-size: 0.9em !important;
+    padding: 10px 0 !important;
+    width: 90vw !important;
+    max-width: 320px !important;
+    margin: 18px auto 0 auto !important;
+    display: block !important;
+  }
+
+  /* Boîte d'intro */
+  div[style*="max-width: 1000px"] {
+    max-width: 96vw !important;
+    padding: 14px 3vw !important;
+    font-size: 0.98em !important;
+    margin: 18px auto 0 auto !important;
+  }
+
+  /* Sous-titre */
+  h2 {
+    font-size: 1.1em !important;
+    margin: 18px 0 12px 0 !important;
+    text-align: center !important;
+    padding: 0 2vw !important;
+  }
+
+  /* Colonnes psychiatrie/neurologie en colonne */
+  div[style*="display: flex"][style*="gap: 48px"] {
+    flex-direction: column !important;
+    gap: 24px !important;
+    margin: 24px 0 !important;
+    padding: 0 2vw !important;
+  }
+  /* Chaque colonne */
+  div[style*="max-width: 600px"] {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 auto 18px auto !important;
+    gap: 16px !important;
+  }
+  /* Boîtes internes */
+  div[style*="border: 2px solid #fae3b7"] {
+    padding: 12px 3vw !important;
+    font-size: 0.97em !important;
+    margin-bottom: 12px !important;
+  }
+  /* Listes */
+  ul {
+    margin: 12px 0 12px 18px !important;
+    padding-left: 14px !important;
+  }
+}
+
+/*Ynhi*/
+
+@media (max-width: 600px) {
+  .ynhi-flex,
+  .portrait-text-flex {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-left: 5vw !important;
+    margin-right: 5vw !important;
+    width: 90vw !important;
+    max-width: 98vw !important;
+    gap: 18px !important;
+    box-sizing: border-box !important;
+  }
+  @media (max-width: 600px) {
+  .ynhi-img,
+  img[alt*="ynhi"],
+  img[src*="ynhi"] {
+    display: block !important;
+    margin: 0 auto 8px auto !important;
+    width: 22vw !important;
+    max-width: 48px !important;
+    height: auto !important;
+    border-radius: 10px !important;
+  }
+}
+  .ynhi-text,
+  .portrait-text-flex > div {
+    text-align: left !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+}
